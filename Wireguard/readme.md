@@ -55,3 +55,15 @@ sudo ip address add dev wg0 YOUR_SERVER_VPN_IP
 sudo wg set wg0 peer YOUR_CLIENT_PUBLIC_KEY allowed-ips YOUR_CLIENT_VPN_IP
 ```
 
+
+
+
+### Conf
+```python
+ip link add wg0 type wireguard
+ip addr add 10.0.0.1/24 dev wg0
+wg set wg0 private-key /etc/wireguard/server/server.key
+wg set wg0 listen-port 51820
+ip link set wg0 up
+wg set wg0 peer Z0fOtR8quXMu2mPGsRAciAZFJ1XTXYWN5IkshaqXajo= allowed-ips 10.0.0.2/32 endpoint 192.168.1.38:51820
+```
